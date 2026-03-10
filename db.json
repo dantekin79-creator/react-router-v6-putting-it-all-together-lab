@@ -76,6 +76,14 @@
             "Family",
             "Sci-Fi"
           ]
+        },
+        {
+          "id": "120c9ade-4f14-4974-8819-98ea7ba46d35",
+          "title": "hh",
+          "time": 67,
+          "genres": [
+            "67"
+          ]
         }
       ]
     },
@@ -120,5 +128,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -32,7 +32,7 @@ function MovieForm() {
       return r.json()
     })
     .then(data => {
-      setDirectors(prev => prev.map(d => d.id === id ? data : d))
+      setDirectors((prev) => prev.map((d) => String(d.id) === id ? data : d))
       navigate(`/directors/${id}/movies/${newMovie.id}`)
     })
     .catch(console.log)

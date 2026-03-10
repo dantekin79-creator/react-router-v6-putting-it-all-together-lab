@@ -8,11 +8,11 @@ import { Link, Outlet, useParams, useOutletContext } from "react-router-dom";
  */
 function DirectorCard() {
     // Extract director ID from URL parameters
-    const { id } = useParams()
-    // Access shared directors state from parent context
-    const { directors } = useOutletContext()
-    // Find the specific director by ID
-    const director = directors.find(d => d.id === id)
+  const { id } = useParams()
+  // Access shared directors state from parent context
+  const { directors, setDirectors } = useOutletContext()
+  // Find the specific director by ID (support numeric or string IDs)
+  const director = directors.find((d) => String(d.id) === id)
 
     // Handle case where director is not found
     if (!director) {
@@ -35,9 +35,9 @@ function DirectorCard() {
                 ))}
             </ul>
             {/* Link to add a new movie for this director */}
-            <Link to={`movies/new`}>Add New Movie</Link>
+            <Link to="movies/new">Add New Movie</Link>
             {/* Outlet renders nested movie components (MovieCard, MovieForm) */}
-            <Outlet context={{ director, directors, setDirectors: useOutletContext().setDirectors }} />
+            <Outlet context={{ director, setDirectors }} />
         </div>
     )
 }
